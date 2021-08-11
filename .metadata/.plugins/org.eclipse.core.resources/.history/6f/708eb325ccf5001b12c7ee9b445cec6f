@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+<title>N.dress</title>
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="http://ajax.googleleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min,js"></script>
+<link rel="stylesheet"
+	  href="http://ajax.googleleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>	  
+<script src="/js/common.js" th:src="@{/js/common.js}"></script>
+<script>
+let cartList = [];
+
+$(() => {
+	$('#loginForm').on('submit', login);
+	$('.cartBtn').on('click', addCart);
+	$('#buyBtn').on('click', buy);
+	$("#historyBtn").on('click',showHistory);
+	
+	$("#historyBtn").dialog({
+		autoOpen: false,
+		width: 550,
+		model: true,
+		bottons: [
+			{
+			text: 'OK',
+			click: function(){
+				$(this).dialog("close");
+				}
+			},
+		]
+	});	
+});
+</script>
+<script type="text/javascript">
+	$(window).on('load', function () {
+  		$('.slider').bxSlider({
+  			auto: true,
+            pause: 3000,
+  		});
+	});
+</script>
+
+</head>
+<body>
+
+<header>
+	<div id="left">
+	<h1>N.dress</h1>
+	<h4>Online Store</h4>
+	</div>
+	
+	<div id="right">
+		<form name="register" id="register" method="post" action="/ecsite/register" th:action="@{/ecsite/register}">
+			<button id="registerBtn" type="submit">新規会員登録</button>
+		</form>
+		
+		<form name="loginForm" id="loginForm" method="post" action="#">
+			ユーザー名:<input type="text" name="userName" />
+			パスワード:<input type="password" name="password" />
+			<button id="loginBtn" type="submit">ログイン</button>		
+		</form>
+		<span id="welcome"> --ようこそ！ゲストさん</span>
+		<input type="hidden" id="hiddenUserId" value="0" />
+	</div>
+</header>
+
+	
+
+
+
+<ul class="slider">
+	<li><img src="/images/slide01.png" width="500" height="300" alt=""></li>
+	<li><img src="/images/slide02.png" width="500" height="300" alt=""></li>
+	<li><img src="/images/slide03.png" width="500" height="300" alt=""></li>
+</ul>
+
+<table>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>商品名</th>
+			<th>価格</th>
+			<th>注文数</th>
+			<th>カート</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<tr th:each="item: ${goods}">
+			<td th:text="${item.id}" />
+			<td th:text="${item.goodsName}" />
+			<td th:text="${item.price}" />
+			<td><input type="number" class="count" value="0"/></td>
+			<td><button class="cartBtn">カート追加</button></td>
+		</tr>
+	</tbody>	
+</table>
+
+<fieldset>
+	<legend>カート</legend>
+	<table id="cart">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>商品名</th>
+				<th>価格</th>
+				<th>注文数</th>
+				<th>カート</th>
+			</tr>
+		</thead>	
+		
+		<tbody>
+		
+		</tbody>
+	</table>
+	
+	<button id="buyBtn">購入</button>
+	<button id="historyBtn">履歴</button>
+</fieldset>
+
+<div id="history" title="購入履歴"　style="display:none;">
+	<table id="historyTable">
+		<thead>
+			<tr>
+				<th>商品名</th>
+				<th>注文数</th>
+				<th>購入日時</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+		
+		</tbody>
+		
+	</table>
+</div>
+
+</body>
+</html>

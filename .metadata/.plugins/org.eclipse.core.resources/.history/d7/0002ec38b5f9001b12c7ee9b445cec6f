@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+body{
+	margin: 0;
+	padding: 0;
+}
+
+header{
+	margin: 0;
+	padding: 0;
+	background: #b0c4de;
+	color: white;
+	height: 110px;
+}
+
+.title{
+	text-decoration: none;
+	color: white;
+}
+
+#homeBox{
+  text-align: center;
+  display: block;
+}
+
+#toHome{
+	font-size: 15px;
+	text-decoration:none;
+	color: #b0c4de;
+}
+
+header*{
+	display: inline-block;
+}
+
+header #left{
+	float: left;
+	margin-left: 30px;
+}
+
+header #left span{
+	font-size: 20px;	
+}
+
+header #right{
+	float: right;
+	margin-right: 20px;
+	margin-top:10px;
+}
+
+#registerPage{
+	min-width: 250px;
+	width: 30%;
+  	margin: 30px auto;
+  	border: 3px solid #b0c4de;
+  	border-radius: 10px;
+}
+
+#registerPage h2,#registerForm{
+	text-align: center;
+	margin: 10px;
+}
+
+#register {
+	text-align: right;
+	
+}
+
+header span{
+	float: right;
+	margin-top: 10px;
+	margin-bottom: 0;
+}
+
+img{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  height: 500px;
+  width: 700px;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.slider li{
+  height: 100vh;
+  display: block!important;
+  position: relative;
+}
+
+input[name=userName]{
+	width: 100px;
+}
+input[name=password]{
+	background-color: #dcdcdc;
+	width: 100px;
+}
+
+input{background-color: #dcdcdc;
+	border: none;
+}
+
+table{
+	margin: 20px  auto;
+	border-collapse: collapse;
+}
+
+table td{
+	border-radius:1px;
+	background: #f0f8ff;
+}
+
+th{
+	border-radius: 3px 3px 0 0;
+	background: #b0c4de;
+	color: white;
+}
+
+ 
+ .cartBtn, #loginBtn, #registerBtn, #historyBtn, #buyBtn, .removeBtn{
+ 	border-radius:3px;
+ 	border: none;
+ 	background: #f0f8ff;
+ 	color: #708090;
+ }
+ 
+ legend{
+ 	width:50%;
+ 	}
+ 	
+ legend p{
+ 	text-align: center;
+ }
+ 

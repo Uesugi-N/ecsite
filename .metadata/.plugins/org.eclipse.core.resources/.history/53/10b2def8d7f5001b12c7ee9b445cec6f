@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+<title>ECサイト</title>
+</head>
+<body>
+
+<header>
+	<div id="left">
+		<a id="title" href="/ecsite/"><h1>N.dress|<span>Online Store<span></h1></a>
+	</div>
+</header>
+
+<div id="registerPage">
+	<h2>新規会員登録</h2>
+	<form name="registerForm" id="registerForm" method="post" action="/ecsite/addUser" th:action="@{/ecsite/addUser}">
+		<p>ユーザー名:<input type="text" name="userName" /></p>
+		<p>パスワード:<input type="password" name="password" /></p>
+		<p>氏名：<input type="text" name="fullName" /></p>
+		<button type="submit">登録</button>
+		<input type="hidden" name="userName" th:value="${userName}" />
+		<input type="hidden" name="password" th:value="${password}" />
+		<input type="hidden" name="fullName" th:value="${fullName}" />
+	</form>
+</div>
+
+<a id="toHome" href="/ecsite/">ホーム画面</a>
+
+</body>
+</html>

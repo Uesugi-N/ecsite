@@ -1,0 +1,13 @@
+package com.portfolio.model.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.portfolio.model.entity.User;
+
+public interface RegisterRepository extends JpaRepository<User, Long>{
+	
+	@Query(value="INSERT INTO user (id, user_name)" +
+			"VALUES (?2,?3)",
+			nativeQuery= true)
+}
